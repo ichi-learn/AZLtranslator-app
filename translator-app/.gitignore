@@ -1,0 +1,14 @@
+# local settings
+local.settings.json
+
+# python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# environments
+.env
+.venv
+env/
+venv/
+ENV/
