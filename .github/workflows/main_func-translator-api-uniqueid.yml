@@ -81,3 +81,7 @@ jobs:
           package: 'release.zip'
           scm-do-build-during-deployment: true
           enable-oryx-build: true
+      - name: Show contents of release.zip
+        run: |
+          unzip -l ../release.zip
+        # Zipファイルの中身を表示してデバッグ
