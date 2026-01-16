@@ -33,7 +33,9 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-
+git add .github/workflows/main_func-translator-api-uniqueid.yml
+git commit -m "Direct zip deployment and cleanup"
+git push origin main
       - name: Install dependencies
         run: |
           cd translator-app
@@ -85,6 +87,4 @@ jobs:
           app-name: 'func-translator-api-uniqueid'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          scm-do-build-during-deployment: true
-          enable-oryx-build: true
           
