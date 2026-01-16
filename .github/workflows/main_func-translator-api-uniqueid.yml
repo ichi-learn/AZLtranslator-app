@@ -43,7 +43,7 @@ jobs:
       - name: Zip artifact for deployment
         run: |
           cd translator-app
-          zip ../release.zip ./* -r
+          zip -r ../release.zip .
         # translator-appの中身を、一つ上の階層にrelease.zipとして固める
 
       - name: Upload artifact for deployment job
