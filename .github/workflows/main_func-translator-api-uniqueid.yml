@@ -33,9 +33,6 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-git add .github/workflows/main_func-translator-api-uniqueid.yml
-git commit -m "Direct zip deployment and cleanup"
-git push origin main
       - name: Install dependencies
         run: |
           cd translator-app
@@ -68,11 +65,6 @@ git push origin main
         with:
           name: python-app
 
-      - name: Unzip artifact for deployment
-        run: |
-          unzip release.zip
-          rm release.zip
-        
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -86,5 +78,6 @@ git push origin main
         with:
           app-name: 'func-translator-api-uniqueid'
           slot-name: 'Production'
-          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          
+          package: 'release.zip'
+          scm-do-build-during-deployment: true
+          enable-oryx-build: true
