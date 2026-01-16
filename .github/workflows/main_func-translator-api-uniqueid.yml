@@ -83,5 +83,5 @@ jobs:
           enable-oryx-build: true
       - name: Show contents of release.zip
         run: |
-          unzip -l ../release.zip
+          unzip -l release.zip
         # Zipファイルの中身を表示してデバッグ
